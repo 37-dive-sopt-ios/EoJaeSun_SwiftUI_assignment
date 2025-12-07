@@ -11,7 +11,7 @@ import SwiftUI
 struct EoJaeSun_SwiftUI_assignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
