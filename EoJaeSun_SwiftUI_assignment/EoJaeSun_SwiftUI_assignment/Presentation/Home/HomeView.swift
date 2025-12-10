@@ -38,6 +38,8 @@ struct HomeView: View {
                 customDivider
                 MartListView()
                 customDivider
+                AdView()
+                customDivider
             }
             
             Spacer()
@@ -221,6 +223,16 @@ private struct MartListView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 11)
         
+    }
+}
+
+// MARK: - AdView
+
+private struct AdView: View {
+    fileprivate var body: some View {
+        Rectangle()
+            .scaledToFit()
+            .foregroundStyle(.baeminGray200)
     }
 }
 
