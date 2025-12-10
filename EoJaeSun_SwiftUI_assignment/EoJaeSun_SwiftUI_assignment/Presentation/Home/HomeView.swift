@@ -35,7 +35,8 @@ struct HomeView: View {
                         endPoint: UnitPoint(x: 0.5, y: 0.3)
                     )
                 }
-                
+                customDivider
+                MartListView()
                 customDivider
             }
             
@@ -203,7 +204,23 @@ private struct CategoryBottomView: View {
             }
             .padding(.vertical, 10)
         }
+    }
+}
 
+// MARK: - MartListView
+
+private struct MartListView: View {
+    fileprivate var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 9) {
+                ForEach(MartType.allCases, id: \.self) { mart in
+                    MenuItemView(text: mart.rawValue)
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 11)
+        
     }
 }
 
