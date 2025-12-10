@@ -17,13 +17,19 @@ struct SearchBarTextField: View {
             Spacer()
             Image(.baeminSearchIcon)
         }
+        
         .padding(.horizontal,17)
         .frame(height: 40)
         .overlay {
             RoundedRectangle(cornerRadius: 50)
                 .stroke(.baeminBlack, lineWidth: 1)
+            
         }
+        .background(Color.baeminWhite)
+        .cornerRadius(50)
         .padding(.horizontal,16)
+        .background(Color.baeminBackgroundWhite)
+      
         
     }
 }

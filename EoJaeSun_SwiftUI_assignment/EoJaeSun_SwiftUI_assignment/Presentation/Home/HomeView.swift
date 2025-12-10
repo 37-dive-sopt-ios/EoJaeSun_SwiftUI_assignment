@@ -12,37 +12,43 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 0) {
+            LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
                 CustomNavigationBar()
                 Spacer()
                     .frame(height: 10)
-                SearchBarTextField(text: $searchText)
-                Spacer()
-                    .frame(height: 24)
-                VStack(spacing: 0) {
-                    bannerView
+                Section(header: SearchBarTextField(text: $searchText)){
                     Spacer()
-                        .frame(height: 27)
-                    CategoryView()
+                        .frame(height: 24)
+                    VStack(spacing: 0) {
+                        bannerView
+                        Spacer()
+                            .frame(height: 27)
+                        CategoryView()
+                    }
+                    .background {
+                        LinearGradient(
+                            colors: [.baeminBackgroundWhite, .baeminMint300],
+                            startPoint: .top,
+                            endPoint: UnitPoint(x: 0.5, y: 0.3)
+                        )
+                    }
+                    customDivider
+                    MartListView()
+                    customDivider
+                    AdView()
+                    customDivider
                 }
-                .background {
-                    LinearGradient(
-                        stops: [
-                            Gradient.Stop(color: .baeminWhite, location: 0.00),
-                            Gradient.Stop(color: .baeminMint300, location: 1.00),
-                        ],
-                        startPoint: UnitPoint(x: 0.5, y: 0.02),
-                        endPoint: UnitPoint(x: 0.5, y: 0.3)
-                    )
-                }
-                customDivider
-                MartListView()
-                customDivider
-                AdView()
-                customDivider
+                
+                
             }
             
             Spacer()
+        }
+        .background(Color.baeminBackgroundWhite)
+        .overlay(alignment: .top) {
+            Color.baeminBackgroundWhite
+                .ignoresSafeArea(edges: .top)
+                .frame(height: 0)
         }
         
         
@@ -222,7 +228,7 @@ private struct MartListView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 11)
-        
+        .background(Color.baeminWhite)
     }
 }
 
