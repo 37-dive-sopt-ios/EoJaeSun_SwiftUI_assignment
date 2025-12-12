@@ -17,6 +17,7 @@ struct RankingListView: View {
                 Spacer()
                     .frame(width: 3)
                 Image(.baeminI)
+                    .foregroundStyle(.baeminWhite)
                 Spacer()
                 Text("전체보기")
                     .font(.pretendard(.body_r_14))
@@ -29,7 +30,7 @@ struct RankingListView: View {
             .padding(.horizontal,16)
             .padding(.bottom,18)
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
+                LazyHStack(spacing: 10) {
                     ForEach(0..<6) { _ in
                         RankingListRowView()
                     }
